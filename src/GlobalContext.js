@@ -5,7 +5,7 @@ import axios from 'axios';
 // Create Context
 const GlobalContext = createContext()
 
-const GlobalProvider = () => {
+const GlobalProvider = (props) => {
 
     // State to save news data after fetching
     const [newsData, setNewsData] = useState();
