@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import NewsCard from './NewsCard'
 import { GlobalContext } from '../GlobalContext'
 import SearchBar from './SearchBar';
+import Pagination from './Pagination';
 const { DateTime } = require("luxon");
 
 
@@ -9,8 +10,8 @@ const { DateTime } = require("luxon");
 const Layout = (props) => {
 
 
-  const { newsData, currentPosts } = useContext(GlobalContext)
-  //console.log(currentPosts)
+  const { newsData, currentPosts, postsPerPage , totalposts } = useContext(GlobalContext)
+  console.log(totalposts)
 
   const [sampleData, setSampleData] = useState( )
   const [originalState, setOrginalState] = useState(true)
@@ -52,7 +53,7 @@ const Layout = (props) => {
 
     
     
-    <main className='h-screen w-screen bg-gradient-to-b from-violet-500 to-fuchsia-500 ' >
+    <main className='h-[100%] w-screen bg-gradient-to-b from-violet-500 to-fuchsia-500 ' >
 
         {/* NAVBAR */}
         <div className='flex flex-row h-[120px] justify-center items-center text-4xl font-[800] text-white '>
@@ -74,6 +75,8 @@ const Layout = (props) => {
           {sampleData && sampleData.map(news => 
             <NewsCard data={news} key={news.title} />
           )}
+
+          <Pagination postsPerPage={postsPerPage} totalPosts={totalposts}/>
           
           {/* {listComponents} */}
             
