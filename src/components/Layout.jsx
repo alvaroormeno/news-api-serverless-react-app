@@ -21,9 +21,9 @@ const Layout = (props) => {
         {/* NEWS CARDS SECTION */}
         <div className='grid grid-cols-3 gap-6 mx-[100px] '>
 
-          {/* {data.articles.map((news) => (
-            <NewsCard data={news} />
-          ))} */}
+          {newsData && newsData.articles.map(news => (
+            <NewsCard data={news} key={news.title} />
+          ))}
             
             
 
