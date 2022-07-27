@@ -14,7 +14,7 @@ const GlobalProvider = (props) => {
     const apiKey = "dfcc844fab394ee09fbbe0ad122029c7"
     // useEffect hook to call api every reload
     useEffect(() => {axios.get(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`)
-        .then(res => setNewsData(res.data))
+        .then(response => setNewsData(response.data))
         .catch(err => console.log(err))
     }, []);
 

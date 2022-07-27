@@ -1,13 +1,11 @@
 import Layout from "./components/Layout";
-import { GlobalContext } from "./GlobalContext";
+import { GlobalProvider } from "./GlobalContext";
 
 function App() {
   return (
-    <GlobalContext>
+    <GlobalProvider>
       <Layout/>
-    </GlobalContext>
-      
-   
+    </GlobalProvider>
   );
 }
 
