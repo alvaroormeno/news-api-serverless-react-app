@@ -16,7 +16,7 @@ const GlobalProvider = (props) => {
     const [newsData, setNewsData] = useState();
     //console.log(newsData)
 
-    const [query, setQuery] = useState('')
+    const [query, setQuery] = useState('bitcoin')
 
     // Api Key 
     const apiKey = "dfcc844fab394ee09fbbe0ad122029c7"
@@ -29,7 +29,7 @@ const GlobalProvider = (props) => {
     // }, []);
 
     // GET - axios call to get all articles
-    const getNewsArticles = async (query) => {
+    const getNewsArticles = async () => {
         try {
             const res = await axios.get(`https://newsapi.org/v2/everything?q=${query}&apiKey=${apiKey}`);
             //console.log(res.data)
@@ -46,12 +46,14 @@ const GlobalProvider = (props) => {
     
     // useEffect hook to call getNewsArticles every reload
     useEffect(()=> {
-        getNewsArticles('bitcoin');
+        getNewsArticles();
         console.log("works")
-    }, [])
+    }, [query])
+
+    
 
   return (
-    <GlobalContext.Provider value={{newsData}}>
+    <GlobalContext.Provider value={{newsData, setQuery}}>
         {props.children}
     </GlobalContext.Provider>
   )

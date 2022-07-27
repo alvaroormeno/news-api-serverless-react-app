@@ -2,14 +2,15 @@ import React, { useState, useContext } from 'react'
 import { GlobalContext } from '../GlobalContext'
 
 const SearchBar = () => {
+    const { setQuery } = useContext(GlobalContext)
 
-    const { getNewsArticles } = useContext(GlobalContext)
+    
 
     const [topic, setTopic] = useState('')
 
     const handleSearchClick = (e) => {
         e.preventDefault();
-        if(topic !== '') getNewsArticles(topic)
+        if(topic !== '') setQuery(topic)
     }
 
   return (
