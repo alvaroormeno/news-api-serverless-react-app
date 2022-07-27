@@ -23,13 +23,15 @@ const GlobalProvider = (props) => {
 
     const [posts, setPosts] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [postsPerPage] = useState(20);
+    const [postsPerPage] = useState(15);
 
     // Get current posts
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
   const totalposts = posts.length
+
+  const paginate = (pageNumber ) => setCurrentPage(pageNumber);
     
     
     // useEffect(() => {
@@ -64,7 +66,7 @@ const GlobalProvider = (props) => {
     
 
   return (
-    <GlobalContext.Provider value={{newsData, setQuery, currentPosts, postsPerPage , totalposts}}>
+    <GlobalContext.Provider value={{newsData, setQuery, currentPosts, postsPerPage , totalposts, paginate}}>
         {props.children}
     </GlobalContext.Provider>
   )

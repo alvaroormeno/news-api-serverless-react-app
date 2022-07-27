@@ -10,7 +10,7 @@ const { DateTime } = require("luxon");
 const Layout = (props) => {
 
 
-  const { newsData, currentPosts, postsPerPage , totalposts } = useContext(GlobalContext)
+  const { newsData, currentPosts, postsPerPage , totalposts, paginate } = useContext(GlobalContext)
   console.log(totalposts)
 
   const [sampleData, setSampleData] = useState( )
@@ -76,7 +76,7 @@ const Layout = (props) => {
             <NewsCard data={news} key={news.title} />
           )}
 
-          <Pagination postsPerPage={postsPerPage} totalPosts={totalposts}/>
+          <Pagination postsPerPage={postsPerPage} totalPosts={totalposts} paginate={paginate}/>
           
           {/* {listComponents} */}
             
