@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import NewsCard from './NewsCard'
+import { GlobalContext } from '../GlobalContext'
 
-const Layout = () => {
+const Layout = (props) => {
+
+  const {data} = useContext(GlobalContext)
+
   return (
+
+    
     
     <main className='h-screen w-screen bg-gradient-to-b from-violet-500 to-fuchsia-500 ' >
 
@@ -13,15 +19,12 @@ const Layout = () => {
 
         {/* NEWS CARDS SECTION */}
         <div className='grid grid-cols-3 gap-6 mx-[100px] '>
-            <NewsCard/>
-            <NewsCard/>
-            <NewsCard/>
-            <NewsCard/>
-            <NewsCard/>
-            <NewsCard/>
-            <NewsCard/>
-            <NewsCard/>
-            <NewsCard/>
+
+          {data.articles.map(news => (
+            <NewsCard data={news} />
+          ))}
+            
+            
 
 
 
