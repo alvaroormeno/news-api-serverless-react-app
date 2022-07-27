@@ -16,7 +16,7 @@ const GlobalProvider = (props) => {
     
     useEffect(() => {
         axios.get(
-            `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`
+            `https://newsapi.org/v2/top-headlines?country=us&pageSize=15&apiKey=${apiKey}`
         ).then((response) => setNewsData(response.data)).catch((error) => console.log(error))
     }, []);
 
