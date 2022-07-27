@@ -12,11 +12,20 @@ const GlobalProvider = (props) => {
     console.log(newsData)
     // Api Key 
     const apiKey = "dfcc844fab394ee09fbbe0ad122029c7"
-    // useEffect hook to call api every reload
-    useEffect(() => {axios.get(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`)
-        .then(response => setNewsData(response.data))
-        .catch(err => console.log(err))
-    }, []);
+    
+    // GET - axios call to get all articles
+    const getNewsArticles = async () => {
+        try {
+            const res = await axios.get(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`);
+            setNewsData(res.data)
+        } catch (err) {
+            console.error(err);
+        }
+    };
+    // useEffect hook to call getNewsArticles every reload
+    useEffect(()=> {
+        getNewsArticles();
+    }, [])
 
   return (
     <GlobalContext.Provider value={{newsData}}>
