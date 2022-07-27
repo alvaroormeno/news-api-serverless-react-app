@@ -4,8 +4,8 @@ import { GlobalContext } from '../GlobalContext'
 
 const Layout = (props) => {
 
-  const { data } = useContext(GlobalContext)
-  console.log(data)
+  const { newsData } = useContext(GlobalContext)
+  console.log(newsData)
 
   return (
 
@@ -21,9 +21,9 @@ const Layout = (props) => {
         {/* NEWS CARDS SECTION */}
         <div className='grid grid-cols-3 gap-6 mx-[100px] '>
 
-          {data.articles.map(news => (
+          {/* {data.articles.map((news) => (
             <NewsCard data={news} />
-          ))}
+          ))} */}
             
             
 
