@@ -12,7 +12,7 @@ const Layout = () => {
         </div>
 
         {/* NEWS CARDS SECTION */}
-        <div className='grid grid-cols-4 gap-6 mx-[100px] '>
+        <div className='grid grid-cols-3 gap-6 mx-[100px] '>
             <NewsCard/>
             <NewsCard/>
             <NewsCard/>
@@ -22,7 +22,7 @@ const Layout = () => {
             <NewsCard/>
             <NewsCard/>
             <NewsCard/>
-            
+
 
 
         </div>
