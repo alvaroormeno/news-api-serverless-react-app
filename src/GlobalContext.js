@@ -9,6 +9,7 @@ const GlobalProvider = () => {
 
     // State to save news data after fetching
     const [newsData, setNewsData] = useState();
+    console.log(newsData)
     // Api Key 
     const apiKey = "dfcc844fab394ee09fbbe0ad122029c7"
     // useEffect hook to call api every reload

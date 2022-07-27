@@ -1,10 +1,13 @@
 import Layout from "./components/Layout";
+import { GlobalContext } from "./GlobalContext";
 
 function App() {
   return (
-    <div>
+    <GlobalContext>
       <Layout/>
-    </div>
+    </GlobalContext>
+      
+   
   );
 }
 
