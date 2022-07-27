@@ -17,7 +17,7 @@ const GlobalProvider = (props) => {
     const getNewsArticles = async () => {
         try {
             const res = await axios.get(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`);
-            setNewsData(res.data)
+            setNewsData(res.newsData)
         } catch (err) {
             console.error(err);
         }

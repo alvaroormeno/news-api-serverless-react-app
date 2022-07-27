@@ -1,6 +1,7 @@
 import React from 'react'
+import { GlobalContext } from '../GlobalContext'
 
-const NewsCard = () => {
+const NewsCard = ({data}) => {
   return (
     
     <main className='flex flex-col bg-white rounded-[10px]'>
@@ -9,7 +10,7 @@ const NewsCard = () => {
         {/* Info Container */}
         <div className='flex flex-col gap-2 w-[100%] p-[10px]'>
         {/* Title */}
-        <h1 className='text-[20px] font-[600] leading-6'>Police release videos of Dallas Love Field Airport shooting; suspect charged with aggravated assault - CBS News</h1>
+        <h1 className='text-[20px] font-[600] leading-6'>{data.title}</h1>
 
         <hr className='border-[3px] rounded-[5px]'/>
         {/* Description */}

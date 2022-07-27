@@ -4,7 +4,8 @@ import { GlobalContext } from '../GlobalContext'
 
 const Layout = (props) => {
 
-  const {data} = useContext(GlobalContext)
+  const { data } = useContext(GlobalContext)
+  console.log(data)
 
   return (
 
