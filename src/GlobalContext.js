@@ -7,7 +7,8 @@ const { DateTime } = require("luxon");
 const GlobalContext = createContext()
 
 const formatTime = (time) => DateTime.fromISO(time).toLocaleString(DateTime.DATETIME_FULL)
-    
+
+
 
 const GlobalProvider = (props) => {
 
@@ -28,9 +29,9 @@ const GlobalProvider = (props) => {
     // }, []);
 
     // GET - axios call to get all articles
-    const getNewsArticles = async () => {
+    const getNewsArticles = async (query) => {
         try {
-            const res = await axios.get(`https://newsapi.org/v2/everything?q=bitcoin&apiKey=${apiKey}`);
+            const res = await axios.get(`https://newsapi.org/v2/everything?q=${query}&apiKey=${apiKey}`);
             //console.log(res.data)
             setNewsData(res.data.articles)
             //console.log(res.data.articles)
@@ -45,7 +46,7 @@ const GlobalProvider = (props) => {
     
     // useEffect hook to call getNewsArticles every reload
     useEffect(()=> {
-        getNewsArticles();
+        getNewsArticles('bitcoin');
         console.log("works")
     }, [])
 

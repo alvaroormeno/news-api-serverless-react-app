@@ -3,13 +3,13 @@ import { GlobalContext } from '../GlobalContext'
 
 const SearchBar = () => {
 
-    const { setQuery } = useContext(GlobalContext)
+    const { getNewsArticles } = useContext(GlobalContext)
 
     const [topic, setTopic] = useState('')
 
     const handleSearchClick = (e) => {
         e.preventDefault();
-        if(topic !== '') setQuery({})
+        if(topic !== '') getNewsArticles(topic)
     }
 
   return (

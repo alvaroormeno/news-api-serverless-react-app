@@ -11,7 +11,7 @@ const NewsCard = ({data, time}) => {
     //console.log(dt)
     
     //console.log(data)
-    console.log(time)
+    //console.log(time)
 
 
   return (
