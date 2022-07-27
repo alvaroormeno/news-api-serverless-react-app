@@ -13,7 +13,6 @@ const GlobalProvider = (props) => {
 
     // State to save news data after fetching
     const [newsData, setNewsData] = useState();
-    const [formatTime, setFormatTime] = useState();
     //console.log(newsData)
     // Api Key 
     const apiKey = "dfcc844fab394ee09fbbe0ad122029c7"

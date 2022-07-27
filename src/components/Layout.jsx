@@ -1,7 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react'
 import NewsCard from './NewsCard'
 import { GlobalContext } from '../GlobalContext'
+import SearchBar from './SearchBar';
 const { DateTime } = require("luxon");
+
 
 
 const Layout = (props) => {
@@ -52,6 +54,14 @@ const Layout = (props) => {
             Top US News Now ! 
         </div>
         <button onClick={handleSort}> {originalState ? "Sort Alphabetically" : "Sort by Date"}</button>
+        {/* <form action="">
+          <input type="text" placeholder='search news' />
+          <button type='submit'></button>
+        </form> */}
+
+
+        <SearchBar/>
+
 
         {/* NEWS CARDS SECTION */}
         <div className='grid grid-cols-3 gap-6 mx-[100px] '>
