@@ -1,9 +1,15 @@
 import React from 'react'
 
-const Newscard = () => {
+const NewsCard = () => {
   return (
-    <div>Newscard</div>
+    
+    <main className='flex flex-col'>
+        <h1>hello</h1>
+    </main>
+
+
+
   )
 }
 
-export default Newscard
+export default NewsCard
