@@ -56,15 +56,8 @@ const Layout = (props) => {
         {/* NEWS CARDS SECTION */}
         <div className='grid grid-cols-3 gap-6 mx-[100px] '>
 
-          {sampleData && sampleData.map(news => {
-            var dt = DateTime.fromISO(news.publishedAt);
-            const time = dt.toLocaleString(DateTime.DATETIME_FULL)
-            return (
-            <NewsCard data={news} time={time} key={news.title} />
-          )
-          }
-          
-
+          {sampleData && sampleData.map(news => 
+            <NewsCard data={news} key={news.title} />
           )}
           
           {/* {listComponents} */}

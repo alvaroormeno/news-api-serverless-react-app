@@ -31,7 +31,7 @@ const NewsCard = ({data, time}) => {
             {data.description}
             </h4>
             {/* Date Published */}
-            <p>{time}</p>
+            <p>{formatTime(data.publishedAt)}</p>
 
             <hr className='border-[3px] mt-auto rounded-[5px]'/>
 

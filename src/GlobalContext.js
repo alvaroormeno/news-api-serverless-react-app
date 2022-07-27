@@ -6,7 +6,7 @@ const { DateTime } = require("luxon");
 // Create Context
 const GlobalContext = createContext()
 
-const formatTime = (time) => DateTime.fromISO(time)
+const formatTime = (time) => DateTime.fromISO(time).toLocaleString(DateTime.DATETIME_FULL)
     
 
 const GlobalProvider = (props) => {
