@@ -1,14 +1,19 @@
 import React, { createContext, useEffect, useState } from 'react'
 import axios from 'axios';
+const { DateTime } = require("luxon");
 
 
 // Create Context
 const GlobalContext = createContext()
 
+const formatTime = (time) => DateTime.fromISO(time)
+    
+
 const GlobalProvider = (props) => {
 
     // State to save news data after fetching
     const [newsData, setNewsData] = useState();
+    const [formatTime, setFormatTime] = useState();
     //console.log(newsData)
     // Api Key 
     const apiKey = "dfcc844fab394ee09fbbe0ad122029c7"
@@ -27,6 +32,10 @@ const GlobalProvider = (props) => {
             //console.log(res.data)
             setNewsData(res.data.articles)
             //console.log(res.data.articles)
+
+            let time = res.data.articles.publishedAt
+            //console.log(time)
+
         } catch (err) {
             console.error(err);
         }
@@ -45,4 +54,4 @@ const GlobalProvider = (props) => {
   )
 }
 
-export {GlobalProvider, GlobalContext}
+export {GlobalProvider, GlobalContext, formatTime}

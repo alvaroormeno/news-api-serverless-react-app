@@ -1,7 +1,19 @@
 import React from 'react'
-import { GlobalContext } from '../GlobalContext'
+import { GlobalContext, formatTime } from '../GlobalContext'
+const { DateTime } = require("luxon");
 
-const NewsCard = ({data}) => {
+const NewsCard = ({data, time}) => {
+
+    //const timestamp = new Date(data.publishedAt).getTime();
+    //console.log(timestamp)
+
+    const dt = DateTime.fromISO(data.publishedAt)
+    //console.log(dt)
+    
+    //console.log(data)
+    console.log(time)
+
+
   return (
     
     <main className='flex flex-col bg-white rounded-[10px]'>
@@ -18,6 +30,8 @@ const NewsCard = ({data}) => {
             <h4 className='text-[15px]'>
             {data.description}
             </h4>
+            {/* Date Published */}
+            <p>{time}</p>
 
             <hr className='border-[3px] mt-auto rounded-[5px]'/>
 
