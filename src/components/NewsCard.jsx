@@ -6,17 +6,22 @@ const NewsCard = ({data}) => {
     
     <main className='flex flex-col bg-white rounded-[10px]'>
         {/* Image */}
-        <img className='rounded-t-[10px]' src="https://assets1.cbsnewsstatic.com/hub/i/r/2022/07/26/1aeae926-e3f1-449d-8195-5f3b2e20d0cd/thumbnail/1200x630/26735ad956949285745a379abad6ca54/dallas-love-field-airport-shooting.png" alt="" />
-        {/* Info Container */}
-        <div className='flex flex-col gap-2 w-[100%] p-[10px]'>
-        {/* Title */}
-        <h1 className='text-[20px] font-[600] leading-6'>{data.title}</h1>
+        <img className='rounded-t-[10px] h-[220px] object-cover  ' src={data.urlToImage} alt="" />
 
-        <hr className='border-[3px] rounded-[5px]'/>
-        {/* Description */}
-        <h4 className='text-[15px]'>
-        The suspect could face additional federal charges for allegedly opening fire at Dallas Love Field Airport on Monday.
-        </h4>
+        {/* Info Container */}
+        <div className='flex flex-col gap-2 w-[100%] h-[100%] p-[10px] justify-between'>
+            {/* Title */}
+            <h1 className='text-[20px] font-[600] leading-6'>{data.title}</h1>
+
+            <hr className='border-[3px] rounded-[5px]'/>
+            {/* Description */}
+            <h4 className='text-[15px]'>
+            {data.description}
+            </h4>
+
+            <hr className='border-[3px] mt-auto rounded-[5px]'/>
+
+            <button className=''>Read Complete Article</button>
         </div>
         
     </main>
