@@ -8,6 +8,7 @@ const Layout = (props) => {
   //console.log(newsData)
 
   const [sampleData, setSampleData] = useState( )
+  const [originalState, setOrginalState] = useState(true)
   
 
   useEffect(() => {
@@ -18,14 +19,22 @@ const Layout = (props) => {
   
 
   const handleSort = () => {
-    console.log('handle sort works')
-    const sortedData = [...sampleData].sort((a,b) => {
-      return a.title > b.title ? 1 : -1
-    })
-    setSampleData(sortedData)
-    //console.log(sortedData)
 
+    if (originalState) {
+      console.log('handle sort works')
+      const sortedData = [...sampleData].sort((a,b) => {
+        return a.title > b.title ? 1 : -1
+      })
+      setSampleData(sortedData)
+      //console.log(sortedData)
+      setOrginalState(false)
+    } else { 
+      setSampleData(newsData)
+      setOrginalState(true)
+    }
   }
+
+  
 
   // const listComponents = newsData.articles.map(news => {
   //    return <NewsCard data={news} key={news.title} />
@@ -41,7 +50,7 @@ const Layout = (props) => {
         <div className='flex flex-row h-[120px] justify-center items-center text-4xl font-[800] text-white '>
             Top US News Now ! 
         </div>
-        <button onClick={handleSort}> date</button>
+        <button onClick={handleSort}> {originalState ? "Sort Alphabetically" : "Sort by Date"}</button>
 
         {/* NEWS CARDS SECTION */}
         <div className='grid grid-cols-3 gap-6 mx-[100px] '>
