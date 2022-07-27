@@ -9,17 +9,21 @@ const { DateTime } = require("luxon");
 const Layout = (props) => {
 
 
-  const { newsData } = useContext(GlobalContext)
-  //console.log(newsData)
+  const { newsData, currentPosts } = useContext(GlobalContext)
+  //console.log(currentPosts)
 
   const [sampleData, setSampleData] = useState( )
   const [originalState, setOrginalState] = useState(true)
+
+  
+
+
   
 
   useEffect(() => {
-    setSampleData(newsData)
+    setSampleData(currentPosts)
     //console.log(sampleData)
-  }, [newsData])
+  }, [currentPosts])
 
   
 
