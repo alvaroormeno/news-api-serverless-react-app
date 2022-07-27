@@ -14,6 +14,9 @@ const GlobalProvider = (props) => {
     // State to save news data after fetching
     const [newsData, setNewsData] = useState();
     //console.log(newsData)
+
+    const [query, setQuery] = useState('')
+
     // Api Key 
     const apiKey = "dfcc844fab394ee09fbbe0ad122029c7"
     
@@ -27,7 +30,7 @@ const GlobalProvider = (props) => {
     // GET - axios call to get all articles
     const getNewsArticles = async () => {
         try {
-            const res = await axios.get(`https://newsapi.org/v2/top-headlines?country=us&pageSize=15&apiKey=${apiKey}`);
+            const res = await axios.get(`https://newsapi.org/v2/everything?q=bitcoin&apiKey=${apiKey}`);
             //console.log(res.data)
             setNewsData(res.data.articles)
             //console.log(res.data.articles)

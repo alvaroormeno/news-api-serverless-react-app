@@ -1,11 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import { GlobalContext } from '../GlobalContext'
 
 const SearchBar = () => {
 
+    const { setQuery } = useContext(GlobalContext)
+
     const [topic, setTopic] = useState('')
 
-    const handleSearchClick = () => {
-        
+    const handleSearchClick = (e) => {
+        e.preventDefault();
+        if(topic !== '') setQuery({})
     }
 
   return (

@@ -8,6 +8,7 @@ const { DateTime } = require("luxon");
 
 const Layout = (props) => {
 
+
   const { newsData } = useContext(GlobalContext)
   //console.log(newsData)
 
