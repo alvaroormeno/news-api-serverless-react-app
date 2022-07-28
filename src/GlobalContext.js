@@ -21,17 +21,18 @@ const GlobalProvider = (props) => {
     // Api Key 
     const apiKey = "dfcc844fab394ee09fbbe0ad122029c7"
 
-    const [posts, setPosts] = useState([]);
+    const [newsArticles, setNewsArticles] = useState([]);
+    const [paginationArticles, setPaginationArticles] = useState([])
     const [currentPage, setCurrentPage] = useState(1);
     //console.log(currentPage)
     const [postsPerPage] = useState(15);
 
-    // Get current posts
+    // Get current newsArticles
   const indexOfLastPost = currentPage * postsPerPage;
   console.log(indexOfLastPost)
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
-  const totalposts = posts.length
+  const currentPosts = paginationArticles.slice(indexOfFirstPost, indexOfLastPost);
+  const totalposts = paginationArticles.length
 
   const paginate = (pageNumber ) => setCurrentPage(pageNumber);
 
@@ -40,28 +41,28 @@ const GlobalProvider = (props) => {
   const [newsData, setNewsData] = useState();
   const [originalSortState, setOrginalSortState] = useState(true);
 
-  // Called every time pagination grabs current posts, sorts depending on originalSortState
+  // Called every time pagination grabs current newsArticles, sorts depending on originalSortState
 //   useEffect(() => {
 //     if(!originalSortState) {
-//       const sortedData = [...posts].sort((a,b) => {
+//       const sortedData = [...newsArticles].sort((a,b) => {
 //         return a.title > b.title ? 1 : -1
 //       });
 //       setNewsData(sortedData);
 //     } else {
 //       setNewsData(currentPosts);
 //     }
-//   }, [posts, currentPage]);
+//   }, [newsArticles, currentPage]);
   // Sorting based on Sorting Button
   const handleSort = () => {
     if (originalSortState) {
       // console.log('handle sort works');
-      const sortedData = [...currentPosts].sort((a,b) => {
+      const sortedData = [...newsArticles].sort((a,b) => {
         return a.title > b.title ? 1 : -1
       });
-      setNewsData(sortedData);
+      setPaginationArticles(sortedData);
       setOrginalSortState(false);
     } else { 
-      setNewsData(currentPosts);
+        setPaginationArticles(newsArticles);
       setOrginalSortState(true);
     };
   };
@@ -75,7 +76,8 @@ const GlobalProvider = (props) => {
             const res = await axios.get(`https://newsapi.org/v2/everything?q=${query}&sortBy=publishedAt&language=en&apiKey=${apiKey}`);
             //console.log(res.data)
             
-            setPosts(res.data.articles);
+            setNewsArticles(res.data.articles);
+            setPaginationArticles(res.data.articles);
         
 
             let time = res.data.articles.publishedAt
