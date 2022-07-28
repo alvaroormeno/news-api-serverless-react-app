@@ -97,7 +97,7 @@ const GlobalProvider = (props) => {
     
 
   return (
-    <GlobalContext.Provider value={{ setQuery, currentPosts, postsPerPage , totalposts, paginate, handleSort, newsData, originalSortState}}>
+    <GlobalContext.Provider value={{ setQuery, currentPosts, postsPerPage , totalposts, paginate, handleSort, newsData, originalSortState, currentPage}}>
         {props.children}
     </GlobalContext.Provider>
   )

@@ -7,7 +7,7 @@ import Pagination from './Pagination';
 const Layout = (props) => {
 
   // Values from GlobalContext
-  const { currentPosts, postsPerPage , totalposts, paginate, handleSort, newsData, originalSortState } = useContext(GlobalContext);
+  const { currentPosts, postsPerPage , totalposts, paginate, handleSort, newsData, originalSortState, currentPage } = useContext(GlobalContext);
   //console.log(paginate)
 
   // //// SORTING ///
@@ -61,10 +61,18 @@ const Layout = (props) => {
             </button>
             {/* Pagination Component */}
             <Pagination className="" postsPerPage={postsPerPage} totalPosts={totalposts} paginate={paginate}/>
-            {/* Sort State */}
-            <p className='ml-[auto] mt-[-20px] text-white tracking-[.5px] font-[600]'>
-              {originalSortState ? "Sorted by - Date Published" : "Sorted by - Title Alphabetical Order" }
-            </p>
+
+            <div className='flex flex-row w-[100%] justify-between'>
+              {/* Sort State */}
+              <p className='mt-[-20px] text-white tracking-[.5px] font-[600]'>
+                {originalSortState ? "Sorted by - Date Published" : "Sorted by - Title Alphabetical Order" }
+              </p>
+              {/* Sort State */}
+              <p className='mt-[-20px] text-white tracking-[.5px] font-[600]'>
+                {`Page - ${currentPage}`}
+              </p>
+            </div>
+            
             
         </div>
         {/*/// NEWS CARDS CONTAINER ///*/}
