@@ -50,12 +50,15 @@ const Layout = (props) => {
     <main className='h-[100%] w-screen bg-gradient-to-b from-violet-500 to-fuchsia-500 ' >
 
         {/* NAVBAR */}
-        <div className='flex flex-col h-[150px] justify-center items-center gap-4'>
+        <div className='flex flex-col h-[200px] justify-center items-center gap-6'>
             <h1 className='text-5xl font-[800] text-white'>
               NEWS NOW!
             </h1>  
             <SearchBar/>
-            <button onClick={handleSort}> 
+            <button
+              className='h-[35px] w-[200px] bg-blue-500 rounded-[50px] text-gray-100 font-[600]'
+              onClick={handleSort}
+            > 
               {originalState ? "Sort Alphabetically" : "Sort by Date"}
             </button>
         </div>
