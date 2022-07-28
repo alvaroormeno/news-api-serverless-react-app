@@ -44,20 +44,16 @@ const Layout = (props) => {
     }
   }
 
-  //  const dt = DateTime.fromISO(data.publishedAt)
-  //   console.log(dt)
-
-  let i = 1
-
   return (
 
-    
-    
+
     <main className='h-[100%] w-screen bg-gradient-to-b from-violet-500 to-fuchsia-500 ' >
 
         {/* NAVBAR */}
         <div className='flex flex-col h-[150px] justify-center items-center gap-4'>
-            <h1 className='text-5xl font-[800] text-white'>NEWS NOW!</h1>  
+            <h1 className='text-5xl font-[800] text-white'>
+              NEWS NOW!
+            </h1>  
             <SearchBar/>
             <button onClick={handleSort}> 
               {originalState ? "Sort Alphabetically" : "Sort by Date"}
@@ -77,7 +73,7 @@ const Layout = (props) => {
         <div className='grid grid-cols-3 gap-6 mx-[100px] '>
 
           {sampleData && sampleData.map(news => 
-            <NewsCard data={news} key={i++} index={i++} />
+            <NewsCard data={news} key={news.url}/>
           )}
 
           <Pagination postsPerPage={postsPerPage} totalPosts={totalposts} paginate={paginate}/>

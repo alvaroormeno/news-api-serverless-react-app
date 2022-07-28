@@ -1,32 +1,37 @@
-import React, { useState, useContext } from 'react'
-import { GlobalContext } from '../GlobalContext'
+import React, { useState, useContext } from "react";
+import { GlobalContext } from "../GlobalContext";
 
 const SearchBar = () => {
-    const { setQuery } = useContext(GlobalContext)
+	const { setQuery } = useContext(GlobalContext);
+	const [topic, setTopic] = useState("");
 
-    
+	const handleSearchClick = (e) => {
+		e.preventDefault();
+		if (topic !== "") setQuery(topic);
+	};
 
-    const [topic, setTopic] = useState('')
+	return (
+		<div>
+			<form
+				className="w-[400px] flex flex-row justify-center"
+				onSubmit={handleSearchClick}
+			>
+				<input
+					className="rounded-[50px] h-[30px] w-[300px] pl-5 focus:outline-none"
+					value={topic}
+					type="text"
+					placeholder="Search Topic ..."
+					onChange={(event) => setTopic(event.currentTarget.value)}
+				/>
+				<button
+					className="h-[30px] w-[100px] bg-cyan-600 rounded-[50px] ml-[-25px] text-gray-100"
+					type="submit"
+				>
+					Submit
+				</button>
+			</form>
+		</div>
+	);
+};
 
-    const handleSearchClick = (e) => {
-        e.preventDefault();
-        if(topic !== '') setQuery(topic)
-    }
-
-  return (
-    <div>
-
-        <form action="" onSubmit={handleSearchClick}>
-          <input 
-            value={topic} 
-            type="text" 
-            placeholder='search news'
-            onChange={(event) => setTopic(event.currentTarget.value) } />
-          <button type='submit'>seearch!</button>
-        </form>
-
-    </div>
-  )
-}
-
-export default SearchBar
+export default SearchBar;
