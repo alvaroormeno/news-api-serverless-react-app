@@ -2,8 +2,14 @@ import React, { useState, useContext } from "react";
 import { GlobalContext } from "../GlobalContext";
 
 const SearchBar = () => {
+
+    const { setOrginalSortState } = useContext(GlobalContext);
+
+
 	const { setQuery } = useContext(GlobalContext);
 	const [topic, setTopic] = useState("");
+
+
 
 	const handleSearchClick = (e) => {
 		e.preventDefault();
@@ -14,7 +20,7 @@ const SearchBar = () => {
 		<div>
 			<form
 				className="w-[400px] flex flex-row justify-center"
-				onSubmit={handleSearchClick}
+				onSubmit={() => {handleSearchClick(); setOrginalSortState(true);}}
 			>
 				<input
 					className="rounded-[50px] h-[30px] w-[300px] pl-5 focus:outline-none"

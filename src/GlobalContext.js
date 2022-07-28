@@ -22,7 +22,7 @@ const GlobalProvider = (props) => {
     // State - save initial news article fetch
     const [newsArticles, setNewsArticles] = useState([]);
 
-    /// SORTING ALGORYTHM ///
+    /// SORTING ALGORYTHM WITH PAGINATION ///
     // State - save articles for pagination when sorting
     const [paginationArticles, setPaginationArticles] = useState([]);
     // State - save sorting alphabetical or date published
