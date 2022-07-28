@@ -7,39 +7,7 @@ import Pagination from './Pagination';
 const Layout = (props) => {
 
   // Values from GlobalContext
-  const { currentPosts, postsPerPage , totalposts, paginate, handleSort, newsData, originalSortState, currentPage } = useContext(GlobalContext);
-  //console.log(paginate)
-
-  // //// SORTING ///
-  // //States
-  // const [newsData, setNewsData] = useState();
-  // const [originalSortState, setOrginalSortState] = useState(true);
-
-  // // Called every time pagination grabs current posts, sorts depending on originalSortState
-  // useEffect(() => {
-  //   if(!originalSortState) {
-  //     const sortedData = [...currentPosts].sort((a,b) => {
-  //       return a.title > b.title ? 1 : -1
-  //     });
-  //     setNewsData(sortedData);
-  //   } else {
-  //     setNewsData(currentPosts);
-  //   }
-  // }, [currentPosts]);
-  // // Sorting based on Sorting Button
-  // const handleSort = () => {
-  //   if (originalSortState) {
-  //     // console.log('handle sort works');
-  //     const sortedData = [...currentPosts].sort((a,b) => {
-  //       return a.title > b.title ? 1 : -1
-  //     });
-  //     setNewsData(sortedData);
-  //     setOrginalSortState(false);
-  //   } else { 
-  //     setNewsData(currentPosts);
-  //     setOrginalSortState(true);
-  //   };
-  // };
+  const { currentNewsArticles, postsPerPage , totalposts, paginate, handleSort, newsData, originalSortState, currentPage } = useContext(GlobalContext);
 
   return (
 
@@ -61,24 +29,22 @@ const Layout = (props) => {
             </button>
             {/* Pagination Component */}
             <Pagination className="" postsPerPage={postsPerPage} totalPosts={totalposts} paginate={paginate}/>
-
+            {/* Sort by & Current Page Container */}
             <div className='flex flex-row w-[100%] justify-between'>
               {/* Sort State */}
               <p className='mt-[-20px] text-white tracking-[.5px] font-[600]'>
                 {originalSortState ? "Sorted by - Date Published" : "Sorted by - Title Alphabetical Order" }
               </p>
-              {/* Sort State */}
+              {/* Current Page */}
               <p className='mt-[-20px] text-white tracking-[.5px] font-[600]'>
                 {`Page - ${currentPage}`}
               </p>
             </div>
-            
-            
         </div>
         {/*/// NEWS CARDS CONTAINER ///*/}
         <div className='grid grid-cols-3 gap-6 mx-[100px]'>
           {/* Map newscard for each news object */}
-          {currentPosts && currentPosts.map(news => 
+          {currentNewsArticles && currentNewsArticles.map(news => 
             <NewsCard data={news} key={news.url}/>
           )}
         </div>
