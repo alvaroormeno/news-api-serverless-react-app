@@ -7,39 +7,39 @@ import Pagination from './Pagination';
 const Layout = (props) => {
 
   // Values from GlobalContext
-  const { currentPosts, postsPerPage , totalposts, paginate } = useContext(GlobalContext);
+  const { currentPosts, postsPerPage , totalposts, paginate, handleSort, newsData, originalSortState } = useContext(GlobalContext);
+  //console.log(paginate)
 
+  // //// SORTING ///
+  // //States
+  // const [newsData, setNewsData] = useState();
+  // const [originalSortState, setOrginalSortState] = useState(true);
 
-  //// SORTING ///
-  //States
-  const [newsData, setNewsData] = useState();
-  const [originalSortState, setOrginalSortState] = useState(true);
-
-  // Called every time pagination grabs current posts, sorts depending on originalSortState
-  useEffect(() => {
-    if(!originalSortState) {
-      const sortedData = [...currentPosts].sort((a,b) => {
-        return a.title > b.title ? 1 : -1
-      });
-      setNewsData(sortedData);
-    } else {
-      setNewsData(currentPosts);
-    }
-  }, [currentPosts]);
-  // Sorting based on Sorting Button
-  const handleSort = () => {
-    if (originalSortState) {
-      // console.log('handle sort works');
-      const sortedData = [...currentPosts].sort((a,b) => {
-        return a.title > b.title ? 1 : -1
-      });
-      setNewsData(sortedData);
-      setOrginalSortState(false);
-    } else { 
-      setNewsData(currentPosts);
-      setOrginalSortState(true);
-    };
-  };
+  // // Called every time pagination grabs current posts, sorts depending on originalSortState
+  // useEffect(() => {
+  //   if(!originalSortState) {
+  //     const sortedData = [...currentPosts].sort((a,b) => {
+  //       return a.title > b.title ? 1 : -1
+  //     });
+  //     setNewsData(sortedData);
+  //   } else {
+  //     setNewsData(currentPosts);
+  //   }
+  // }, [currentPosts]);
+  // // Sorting based on Sorting Button
+  // const handleSort = () => {
+  //   if (originalSortState) {
+  //     // console.log('handle sort works');
+  //     const sortedData = [...currentPosts].sort((a,b) => {
+  //       return a.title > b.title ? 1 : -1
+  //     });
+  //     setNewsData(sortedData);
+  //     setOrginalSortState(false);
+  //   } else { 
+  //     setNewsData(currentPosts);
+  //     setOrginalSortState(true);
+  //   };
+  // };
 
   return (
 
@@ -70,7 +70,7 @@ const Layout = (props) => {
         {/*/// NEWS CARDS CONTAINER ///*/}
         <div className='grid grid-cols-3 gap-6 mx-[100px]'>
           {/* Map newscard for each news object */}
-          {newsData && newsData.map(news => 
+          {currentPosts && currentPosts.map(news => 
             <NewsCard data={news} key={news.url}/>
           )}
         </div>
