@@ -15,18 +15,29 @@ const Layout = (props) => {
 
   //// SORTING ///
   //States
-  const [sampleData, setSampleData] = useState( );
+  const [sampleData, setSampleData] = useState();
+  console.log(sampleData)
   const [originalState, setOrginalState] = useState(true);
+  console.log(originalState)
 
   useEffect(() => {
-    setSampleData(currentPosts);
+
+    if(!originalState) {
+      const sortedData = [...currentPosts].sort((a,b) => {
+        return a.title > b.title ? 1 : -1
+      });
+      setSampleData(sortedData);
+    } else {
+      setSampleData(currentPosts);
+    }
+    
   }, [currentPosts]);
 
   const handleSort = () => {
 
     if (originalState) {
       // console.log('handle sort works');
-      const sortedData = [...sampleData].sort((a,b) => {
+      const sortedData = [...currentPosts].sort((a,b) => {
         return a.title > b.title ? 1 : -1
       });
       setSampleData(sortedData);
@@ -58,7 +69,7 @@ const Layout = (props) => {
             </button>
             {/* Sort State */}
             <p className='ml-[auto] text-white tracking-[.5px]'>
-              {originalState? "Sorted by - Date Published" : "Sorted by - Title Alphabetical Order" }
+              {originalState ? "Sorted by - Date Published" : "Sorted by - Title Alphabetical Order" }
             </p>
         </div>
         {/* NEWS CARDS CONTAINER */}
@@ -66,7 +77,7 @@ const Layout = (props) => {
           {sampleData && sampleData.map(news => 
             <NewsCard data={news} key={news.url}/>
           )};
-          <Pagination postsPerPage={postsPerPage} totalPosts={totalposts} paginate={paginate}/>
+          <Pagination postsPerPage={postsPerPage} totalPosts={totalposts} paginate={paginate} sort={handleSort}/>
         </div>
 
     </main>
