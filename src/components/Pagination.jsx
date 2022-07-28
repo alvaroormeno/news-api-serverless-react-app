@@ -11,15 +11,17 @@ const Pagination = ({ postsPerPage, totalPosts, paginate, sort  }) => {
       }
 
   return (
-    <nav className='border-[2px]'>
+    <nav className=' flex flex-row justify-center'>
       <ul className='pagination'>
         {pageNumbers.map(number => (
           <li key={number} className='page-item'>
 
-
-            <a onClick={() =>{ paginate(number);}} href='!#' className='page-link'>
-              {number}
-            </a>
+            <div className='active:bg-violet-700'>
+                <a onClick={() =>{ paginate(number);}} href='!#' className='page-link'>
+                    {number}
+                </a>
+            </div>
+            
 
 
           </li>

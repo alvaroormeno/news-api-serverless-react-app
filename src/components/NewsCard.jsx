@@ -19,7 +19,7 @@ const NewsCard = ({data}) => {
 
   return (
     
-    <main className='flex flex-col bg-white rounded-[10px]'>
+    <main className='flex flex-col bg-white rounded-[10px] shadow-xl shadow-indigo-500/50  '>
         {/* Image */}
         <img className='rounded-t-[10px] h-[180px] object-cover  ' src={data.urlToImage} alt="article image" />
         {/* Info Container */}
