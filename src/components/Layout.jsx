@@ -45,7 +45,7 @@ const Layout = (props) => {
 
     <main className='h-[100%] w-screen bg-gradient-to-b  from-violet-500 to-fuchsia-500'>
         {/*/// NAVBAR ///*/}
-        <div className='flex flex-col h-[220px] mx-[100px] justify-end  items-center gap-6'>
+        <div className='flex flex-col h-[280px] mx-[100px] justify-end  items-center gap-6'>
             {/* Title */}
             <h1 className='text-5xl font-[800] text-white '>
               NEWS NOW!
@@ -59,20 +59,23 @@ const Layout = (props) => {
             > 
               {originalSortState ? "Sort Title A-Z" : "Sort Date Published"}
             </button>
+            {/* Pagination Component */}
+            <Pagination className="" postsPerPage={postsPerPage} totalPosts={totalposts} paginate={paginate}/>
             {/* Sort State */}
-            <p className='ml-[auto] text-white tracking-[.5px] font-[600]'>
+            <p className='ml-[auto] mt-[-20px] text-white tracking-[.5px] font-[600]'>
               {originalSortState ? "Sorted by - Date Published" : "Sorted by - Title Alphabetical Order" }
             </p>
-            {/* Pagination Component */}
-          <Pagination postsPerPage={postsPerPage} totalPosts={totalposts} paginate={paginate}/>
+            
         </div>
         {/*/// NEWS CARDS CONTAINER ///*/}
         <div className='grid grid-cols-3 gap-6 mx-[100px]'>
           {/* Map newscard for each news object */}
           {newsData && newsData.map(news => 
             <NewsCard data={news} key={news.url}/>
-          )};
-          {/* Pagination Component */}
+          )}
+        </div>
+        {/*/// PAGINATION CONTAINER ///*/}
+        <div className='py-[40px]'>
           <Pagination postsPerPage={postsPerPage} totalPosts={totalposts} paginate={paginate}/>
         </div>
     </main>
