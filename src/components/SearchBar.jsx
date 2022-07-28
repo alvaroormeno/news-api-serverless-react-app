@@ -3,7 +3,7 @@ import { GlobalContext } from "../GlobalContext";
 
 const SearchBar = () => {
     // Import setStates from globalcontext.js
-	const { setQuery, setOrginalSortState, orginalSortState } = useContext(GlobalContext);
+	const { setQuery, setOrginalSortState } = useContext(GlobalContext);
     
     // State - save searched topic
 	const [topic, setTopic] = useState("");
@@ -15,8 +15,6 @@ const SearchBar = () => {
 
         setOrginalSortState(true)
 	};
-
-
 
 	return (
 		<div>
