@@ -2,7 +2,8 @@ import React from 'react'
 import { GlobalContext, formatTime } from '../GlobalContext'
 const { DateTime } = require("luxon");
 
-const NewsCard = ({data, time}) => {
+const NewsCard = ({data}) => {
+    
 
     //const timestamp = new Date(data.publishedAt).getTime();
     //console.log(timestamp)
@@ -12,6 +13,8 @@ const NewsCard = ({data, time}) => {
     
     //console.log(data)
     //console.log(time)
+
+    let i = 1
 
 
   return (
@@ -32,6 +35,7 @@ const NewsCard = ({data, time}) => {
             </h4>
             {/* Date Published */}
             <p>{formatTime(data.publishedAt)}</p>
+            
 
             <hr className='border-[3px] mt-auto rounded-[5px]'/>
 
