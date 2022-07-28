@@ -51,13 +51,13 @@ const Layout = (props) => {
             </h1>  
             <SearchBar/>
             <button
-              className='h-[35px] w-[200px] mb-[-0px] bg-blue-500 rounded-[50px] text-gray-100 font-[600]'
+              className='h-[35px] w-[200px] mb-[-0px] bg-blue-500 rounded-[50px] text-gray-100 font-[600] tracking-[1px] '
               onClick={handleSort}
             > 
-              {originalState ? "Sort Alphabetically" : "Sort Date Published"}
+              {originalState ? "Sort Title A-Z" : "Sort Date Published"}
             </button>
             {/* Sort State */}
-            <p className='ml-[auto] text-white'>
+            <p className='ml-[auto] text-white tracking-[.5px]'>
               {originalState? "Sorted by - Date Published" : "Sorted by - Title Alphabetical Order" }
             </p>
         </div>
