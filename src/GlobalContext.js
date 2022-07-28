@@ -43,7 +43,7 @@ const GlobalProvider = (props) => {
     // GET - axios call to get all articles
     const getNewsArticles = async () => {
         try {
-            const res = await axios.get(`https://newsapi.org/v2/everything?q=${query}&apiKey=${apiKey}`);
+            const res = await axios.get(`https://newsapi.org/v2/everything?q=${query}&sortBy=publishedAt&apiKey=${apiKey}`);
             //console.log(res.data)
             setNewsData(res.data.articles)
             setPosts(res.data.articles);
