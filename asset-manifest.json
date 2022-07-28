@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/news-api-serverless-react-app/static/css/main.d2fb4cc3.css",
+    "main.js": "/news-api-serverless-react-app/static/js/main.6687ff9b.js",
+    "index.html": "/news-api-serverless-react-app/index.html",
+    "main.d2fb4cc3.css.map": "/news-api-serverless-react-app/static/css/main.d2fb4cc3.css.map",
+    "main.6687ff9b.js.map": "/news-api-serverless-react-app/static/js/main.6687ff9b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d2fb4cc3.css",
+    "static/js/main.6687ff9b.js"
+  ]
+}
