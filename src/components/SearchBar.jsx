@@ -20,7 +20,7 @@ const SearchBar = () => {
 	return (
 		<div>
 			<form
-				className="w-[400px] flex flex-row justify-center"
+				className="sm:w-[350px] md:w-[400px] flex flex-row justify-center"
 				onSubmit={handleSearchClick}
 			>
 				<input

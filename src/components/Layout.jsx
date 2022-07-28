@@ -13,9 +13,9 @@ const Layout = (props) => {
 
     <main className='h-[100%] w-screen bg-gradient-to-b  from-violet-500 to-fuchsia-500'>
         {/*/// NAVBAR ///*/}
-        <div className='flex flex-col h-[280px] mx-[100px] justify-end  items-center gap-6'>
+        <div className='flex flex-col h-[280px] sm:mx-[20px] md:mx-[100px] justify-end  items-center gap-6'>
             {/* Title */}
-            <h1 className='text-5xl font-[800] text-white '>
+            <h1 className='sm:text-3xl md:text-5xl font-[800] text-white '>
               NEWS NOW!
             </h1>
             {/* Search Bar Component */}
@@ -42,7 +42,7 @@ const Layout = (props) => {
             </div>
         </div>
         {/*/// NEWS CARDS CONTAINER ///*/}
-        <div className='grid grid-cols-3 gap-6 mx-[100px]'>
+        <div className='grid sm:grid-cols-1 md:grid-cols-3 gap-6 sm:mx-[20px] md:mx-[100px]'>
           {/* Map newscard for each news object */}
           {currentNewsArticles && currentNewsArticles.map(news => 
             <NewsCard data={news} key={news.url}/>
