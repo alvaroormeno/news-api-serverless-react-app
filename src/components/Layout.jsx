@@ -3,6 +3,7 @@ import NewsCard from './NewsCard'
 import { GlobalContext } from '../GlobalContext'
 import SearchBar from './SearchBar';
 import Pagination from './Pagination';
+import { isCompositeComponent } from 'react-dom/test-utils';
 
 const Layout = (props) => {
 

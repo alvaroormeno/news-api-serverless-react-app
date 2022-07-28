@@ -1,5 +1,5 @@
 import React from 'react'
-import { GlobalContext, formatTime } from '../GlobalContext'
+import { formatTime } from '../GlobalContext'
 const { DateTime } = require("luxon");
 
 const NewsCard = ({data}) => {

@@ -4,11 +4,10 @@ const { DateTime } = require("luxon");
 
 // Create Context
 const GlobalContext = createContext();
+
 // Format date function called in newcard component
 const formatTime = (time) =>
     DateTime.fromISO(time).toLocaleString(DateTime.DATETIME_FULL);
-
-
 
 
 const GlobalProvider = (props) => {
@@ -85,6 +84,7 @@ const GlobalProvider = (props) => {
         originalSortState,
         setOrginalSortState,
         currentPage,
+        setCurrentPage,
     };
 
     return (
