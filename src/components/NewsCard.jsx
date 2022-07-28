@@ -14,34 +14,35 @@ const NewsCard = ({data}) => {
     //console.log(data)
     //console.log(time)
 
-    let i = 1
+    
 
 
   return (
     
     <main className='flex flex-col bg-white rounded-[10px]'>
         {/* Image */}
-        <img className='rounded-t-[10px] h-[220px] object-cover  ' src={data.urlToImage} alt="" />
-
+        <img className='rounded-t-[10px] h-[180px] object-cover  ' src={data.urlToImage} alt="article image" />
         {/* Info Container */}
         <div className='flex flex-col gap-2 w-[100%] h-[100%] p-[10px] justify-between'>
             {/* Title */}
             <h1 className='text-[20px] font-[600] leading-6'>{data.title}</h1>
-
+            {/* Break */}
             <hr className='border-[3px] rounded-[5px]'/>
             {/* Description */}
-            <h4 className='text-[15px]'>
+            <h4 className='text-[15px] leading-5'>
             {data.description}
             </h4>
             {/* Date Published */}
-            <p>{formatTime(data.publishedAt)}</p>
-            
-
-            <hr className='border-[3px] mt-auto rounded-[5px]'/>
-
-            <button className=''>Read Complete Article</button>
+            <p className='mt-auto text-[12px] font-[600]'>
+                {formatTime(data.publishedAt)}
+            </p>
+            {/* Break */}
+            <hr className='border-[3px] rounded-[5px]'/>
+            {/* Button */}
+            <button className='text-[15px] bg-violet-500 w-[180px] mx-auto rounded-[50px] text-white'>
+                Read Complete Article
+            </button>
         </div>
-        
     </main>
 
 
