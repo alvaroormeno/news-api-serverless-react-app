@@ -1,14 +1,13 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import NewsCard from './NewsCard'
 import { GlobalContext } from '../GlobalContext'
 import SearchBar from './SearchBar';
 import Pagination from './Pagination';
-import { isCompositeComponent } from 'react-dom/test-utils';
 
 const Layout = (props) => {
 
   // Values from GlobalContext
-  const { currentNewsArticles, postsPerPage , totalposts, paginate, handleSort, newsData, originalSortState, currentPage } = useContext(GlobalContext);
+  const { currentNewsArticles, postsPerPage , totalposts, paginate, handleSort, originalSortState, currentPage } = useContext(GlobalContext);
 
   return (
 

@@ -3,9 +3,6 @@ import { formatTime } from '../GlobalContext'
 const { DateTime } = require("luxon");
 
 const NewsCard = ({data}) => {
-
-    //Luxon formatting for date
-    const dt = DateTime.fromISO(data.publishedAt);
     
   return (
     

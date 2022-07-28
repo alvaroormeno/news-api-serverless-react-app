@@ -71,7 +71,6 @@ const GlobalProvider = (props) => {
     // useEffect hook to call getNewsArticles every query status
     useEffect(() => {
         getNewsArticles();
-        console.log("works");
     }, [query]);
 
     const values = {
