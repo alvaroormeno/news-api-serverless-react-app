@@ -3,20 +3,26 @@ import { GlobalContext } from "../GlobalContext";
 
 const SearchBar = () => {
     // Import setStates from globalcontext.js
-	const { setQuery, setOrginalSortState } = useContext(GlobalContext);
+	const { setQuery, setOrginalSortState, orginalSortState } = useContext(GlobalContext);
+    
     // State - save searched topic
 	const [topic, setTopic] = useState("");
 
 	const handleSearchClick = (e) => {
 		e.preventDefault();
+        
 		if (topic !== "") setQuery(topic);
+
+        setOrginalSortState(true)
 	};
+
+
 
 	return (
 		<div>
 			<form
 				className="w-[400px] flex flex-row justify-center"
-				onSubmit={() => {handleSearchClick(); setOrginalSortState(true);}}
+				onSubmit={handleSearchClick}
 			>
 				<input
 					className="rounded-[50px] h-[30px] w-[300px] pl-5 focus:outline-none"

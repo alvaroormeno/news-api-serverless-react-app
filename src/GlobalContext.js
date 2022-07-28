@@ -75,19 +75,20 @@ const GlobalProvider = (props) => {
         console.log("works");
     }, [query]);
 
+    const values = {
+        setQuery,
+        currentNewsArticles,
+        postsPerPage,
+        totalposts,
+        paginate,
+        handleSort,
+        originalSortState,
+        setOrginalSortState,
+        currentPage,
+    };
+
     return (
-        <GlobalContext.Provider
-            value={{
-                setQuery,
-                currentNewsArticles,
-                postsPerPage,
-                totalposts,
-                paginate,
-                handleSort,
-                originalSortState,
-                currentPage,
-            }}
-        >
+        <GlobalContext.Provider value={values}>
             {props.children}
         </GlobalContext.Provider>
     );
