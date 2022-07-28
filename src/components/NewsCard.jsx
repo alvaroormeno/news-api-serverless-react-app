@@ -3,20 +3,10 @@ import { GlobalContext, formatTime } from '../GlobalContext'
 const { DateTime } = require("luxon");
 
 const NewsCard = ({data}) => {
+
+    //Luxon formatting for date
+    const dt = DateTime.fromISO(data.publishedAt);
     
-
-    //const timestamp = new Date(data.publishedAt).getTime();
-    //console.log(timestamp)
-
-    const dt = DateTime.fromISO(data.publishedAt)
-    //console.log(dt)
-    
-    //console.log(data)
-    //console.log(time)
-
-    
-
-
   return (
     
     <main className='flex flex-col bg-white rounded-[10px] shadow-xl shadow-indigo-500/50  '>
@@ -45,9 +35,7 @@ const NewsCard = ({data}) => {
         </div>
     </main>
 
-
-
-  )
-}
+  );
+};
 
 export default NewsCard

@@ -33,13 +33,6 @@ const GlobalProvider = (props) => {
 
   const paginate = (pageNumber ) => setCurrentPage(pageNumber);
     
-    
-    // useEffect(() => {
-    //     axios.get(
-    //         `https://newsapi.org/v2/top-headlines?country=us&pageSize=15&apiKey=${apiKey}`
-    //     ).then((response) => setNewsData(response.data)).catch((error) => console.log(error))
-    // }, []);
-
     // GET - axios call to get all articles
     const getNewsArticles = async () => {
         try {
@@ -47,10 +40,10 @@ const GlobalProvider = (props) => {
             //console.log(res.data)
             setNewsData(res.data.articles)
             setPosts(res.data.articles);
-            //console.log(res.data.articles)
+        
 
             let time = res.data.articles.publishedAt
-            //console.log(time)
+           
 
         } catch (err) {
             console.error(err);
