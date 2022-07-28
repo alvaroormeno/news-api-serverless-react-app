@@ -2,14 +2,10 @@ import React, { useState, useContext } from "react";
 import { GlobalContext } from "../GlobalContext";
 
 const SearchBar = () => {
-
-    const { setOrginalSortState } = useContext(GlobalContext);
-
-
-	const { setQuery } = useContext(GlobalContext);
+    // Import setStates from globalcontext.js
+	const { setQuery, setOrginalSortState } = useContext(GlobalContext);
+    // State - save searched topic
 	const [topic, setTopic] = useState("");
-
-
 
 	const handleSearchClick = (e) => {
 		e.preventDefault();
