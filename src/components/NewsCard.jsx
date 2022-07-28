@@ -40,7 +40,7 @@ const NewsCard = ({data}) => {
             <hr className='border-[3px] rounded-[5px]'/>
             {/* Button */}
             <button className='text-[15px] bg-violet-500 w-[180px] mx-auto rounded-[50px] text-white'>
-                Read Complete Article
+                <a href={data.url} target="_blank">Read Complete Article</a>
             </button>
         </div>
     </main>
