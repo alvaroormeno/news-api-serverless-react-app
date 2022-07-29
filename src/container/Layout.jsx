@@ -12,7 +12,7 @@ const Layout = (props) => {
   return (
 
     <main className='h-[100%] w-screen bg-gradient-to-b  from-violet-500 to-fuchsia-500'>
-        {/*/// NAVBAR ///*/}
+        {/* /// NAVBAR /// */}
         <div className='flex flex-col h-[280px] sm:mx-[20px] md:mx-[100px] justify-end  items-center gap-6'>
             {/* Title */}
             <h1 className='sm:text-3xl md:text-5xl font-[800] text-white '>
