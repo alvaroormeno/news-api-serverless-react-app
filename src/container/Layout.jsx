@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
-import NewsCard from './NewsCard'
+import NewsCard from '../components/NewsCard/NewsCard'
 import { GlobalContext } from '../GlobalContext'
-import SearchBar from './SearchBar';
-import Pagination from './Pagination';
+import SearchBar from '../components/SearchBar/SearchBar';
+import Pagination from '../components/Pagination/Pagination';
 
 const Layout = (props) => {
 

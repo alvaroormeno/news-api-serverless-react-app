@@ -1,4 +1,4 @@
-import Layout from "./components/Layout";
+import Layout from "./container/Layout";
 import { GlobalProvider } from "./GlobalContext";
 const { DateTime } = require("luxon");
 
